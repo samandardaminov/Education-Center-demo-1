@@ -25,7 +25,7 @@ public class EducationCenterController {
 
     @PostMapping("/saveOrEditCenter")
     public HttpEntity<?> saveOrEditEducationCenter(@RequestBody EducationCenterDto centerDto) {
-        System.out.println("Hello");
+
         ApiResponse response = educationCenterService.saveOrEditEducationCenter(centerDto);
         return ResponseEntity.status(response.isSuccess() ?
                         response.getMessage().equals("Saved") ? 201 : 202 : 409)
