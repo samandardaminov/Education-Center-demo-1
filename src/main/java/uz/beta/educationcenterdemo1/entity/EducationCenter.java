@@ -35,9 +35,11 @@ public class EducationCenter extends AbsNameEntity {
 
     private Integer totalStudentsEntered;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "educationCenter",cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "educationCenter",cascade = CascadeType.ALL)
     private List<Subject> subjects;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "educationCenter",cascade = CascadeType.ALL)
+    private List<Attachment> attachments;
 
     public void setRank(Integer totalStudents, Integer totalStudentsEntered){
         rank=(int)(((float)totalStudentsEntered/(float)totalStudents)*100);
